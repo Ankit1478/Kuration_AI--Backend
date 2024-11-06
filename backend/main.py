@@ -12,10 +12,9 @@ logger = logging.getLogger(__name__)
 
 # Load environment variables
 load_dotenv()
-API_KEY = os.getenv("API_KEY")
+API_KEY = "672b6301b65d2999e3dc979d"
 
 app = FastAPI()
-
 # Enable CORS
 app.add_middleware(
     CORSMiddleware,
@@ -44,7 +43,7 @@ async def enrich_lead(lead_info: LeadInfo):
         response = requests.get(
             "https://api.enrichmentapi.io/company",
             params=payload,
-            timeout=10  # Add timeout
+            timeout=10  
         )
         
         # Log the API response
